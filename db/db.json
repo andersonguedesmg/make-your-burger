@@ -1,0 +1,145 @@
+{
+  "ingredients": {
+    "bread": [
+      {
+        "id": 1,
+        "type": "Pão de Hamburguer"
+      },
+      {
+        "id": 2,
+        "type": "Pão Italiano"
+      },
+      {
+        "id": 3,
+        "type": "Brioche"
+      },
+      {
+        "id": 4,
+        "type": "Pão Australiano"
+      },
+      {
+        "id": 5,
+        "type": "Ciabatta"
+      }
+    ],
+    "meat": [
+      {
+        "id": 1,
+        "type": "Maminha"
+      },
+      {
+        "id": 2,
+        "type": "Alcatra"
+      },
+      {
+        "id": 3,
+        "type": "Picanha"
+      },
+      {
+        "id": 4,
+        "type": "Costela"
+      },
+      {
+        "id": 5,
+        "type": "Brisket"
+      },
+      {
+        "id": 6,
+        "type": "Frango Grelhado"
+      },
+      {
+        "id": 7,
+        "type": "Vegano"
+      }
+    ],
+    "optional": [
+      {
+        "id": 1,
+        "type": "Bacon"
+      },
+      {
+        "id": 2,
+        "type": "Cheddar"
+      },
+      {
+        "id": 3,
+        "type": "Catupiry"
+      },
+      {
+        "id": 4,
+        "type": "Presunto"
+      },
+      {
+        "id": 5,
+        "type": "Queijo"
+      },
+      {
+        "id": 6,
+        "type": "Tomate"
+      },
+      {
+        "id": 7,
+        "type": "Milho"
+      },
+      {
+        "id": 8,
+        "type": "Batata Palha"
+      },
+      {
+        "id": 9,
+        "type": "Alface"
+      },
+      {
+        "id": 10,
+        "type": "Ovo"
+      },
+      {
+        "id": 11,
+        "type": "Azeitona Preta"
+      },
+      {
+        "id": 12,
+        "type": "Champignon"
+      },
+      {
+        "id": 13,
+        "type": "Picles"
+      },
+      {
+        "id": 14,
+        "type": "Mostarda"
+      },
+      {
+        "id": 15,
+        "type": "Ketchup"
+      },
+      {
+        "id": 16,
+        "type": "Maionese"
+      },
+      {
+        "id": 17,
+        "type": "Molho Barbecue"
+      },
+      {
+        "id": 18,
+        "type": "Cebola Roxa"
+      }
+    ]
+  },
+  "status": [
+    {
+      "id": 1,
+      "type": "Solicitado"
+    },
+    {
+      "id": 2,
+      "type": "Em produção"
+    },
+    {
+      "id": 3,
+      "type": "Finalizado"
+    }
+  ],
+  "burger": []
+}
