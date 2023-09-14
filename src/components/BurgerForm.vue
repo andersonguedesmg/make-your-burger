@@ -1,18 +1,19 @@
 <template>
   <div>
-    <form id="burger-form">
+    <form id="burger-form" @submit="createBurger">
       <div class="input-container">
         <label for="name">Cliente:</label>
         <input
           type="text"
           id="name"
           name="name"
+          v-model="name"
           placeholder="Digite seu Nome"
         />
       </div>
       <div class="input-container">
         <label for="bread">Escolha o Pão:</label>
-        <select name="bread" id="bread">
+        <select name="bread" id="bread" v-model="bread">
           <option value="">-- Selecione o tipo de Pão --</option>
           <option
             v-for="bread in breadList"
@@ -25,7 +26,7 @@
       </div>
       <div class="input-container">
         <label for="meat">Escolha a Carne:</label>
-        <select name="meat" id="meat">
+        <select name="meat" id="meat" v-model="meat">
           <option value="">-- Selecione o tipo de Carne --</option>
           <option v-for="meat in meatList" :key="meat.id" :value="meat.type">
             {{ meat.type }}
@@ -41,7 +42,12 @@
           v-for="optional in optionalList"
           :key="optional.id"
         >
-          <input type="checkbox" name="optional" :value="optional.type" />
+          <input
+            type="checkbox"
+            name="optional"
+            v-model="optionals"
+            :value="optional.type"
+          />
           <span>{{ optional.type }}</span>
         </div>
       </div>
@@ -63,8 +69,7 @@ export default {
       name: null,
       bread: null,
       meat: null,
-      optional: [],
-      status: "Solicitado",
+      optionals: [],
     };
   },
   methods: {
@@ -75,6 +80,37 @@ export default {
       this.breadList = data.bread;
       this.meatList = data.meat;
       this.optionalList = data.optional;
+    },
+
+    async createBurger(event) {
+      event.preventDefault();
+
+      const data = {
+        name: this.name,
+        bread: this.bread,
+        meat: this.meat,
+        optional: Array.from(this.optionals),
+        status: "Solicitado",
+      };
+
+      const dataJson = JSON.stringify(data);
+
+      const req = await fetch("http://localhost:3000/burger", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
+
+      const res = await req.json();
+
+      this.cleanInputs();
+    },
+
+    cleanInputs() {
+      this.name = "";
+      this.bread = "";
+      this.meat = "";
+      this.optionals = [];
     },
   },
   mounted() {
