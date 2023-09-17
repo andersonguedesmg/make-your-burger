@@ -22,7 +22,11 @@
           </ul>
         </td>
         <td>
-          <select name="status" class="status">
+          <select
+            name="status"
+            class="status"
+            @change="updateBurger($event, burger.id)"
+          >
             <option
               v-for="status in statusList"
               :key="status.id"
@@ -32,7 +36,9 @@
               {{ status.type }}
             </option>
           </select>
-          <button class="delete-btn">Cancelar</button>
+          <button class="delete-btn" @click="deleteBurger(burger.id)">
+            Cancelar
+          </button>
         </td>
       </tr>
     </table>
@@ -66,6 +72,30 @@ export default {
       const data = await req.json();
 
       this.statusList = data;
+    },
+
+    async deleteBurger(id) {
+      const req = await fetch(`http://localhost:3000/burger/${id}`, {
+        method: "DELETE",
+      });
+
+      const res = await req.json();
+
+      this.getOrders();
+    },
+
+    async updateBurger(event, id) {
+      const option = event.target.value;
+
+      const dataJson = JSON.stringify({ status: option });
+
+      const req = await fetch(`http://localhost:3000/burger/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
+
+      const res = await req.json();
     },
   },
   mounted() {
