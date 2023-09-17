@@ -137,7 +137,7 @@ export default {
 .input-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 label {
@@ -151,7 +151,6 @@ label {
 input,
 select {
   padding: 5px 10px;
-  width: 300px;
 }
 
 #optional-container {
