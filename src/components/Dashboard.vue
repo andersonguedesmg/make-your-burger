@@ -9,21 +9,28 @@
         <th>Opcionais:</th>
         <th>Ações:</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Jed Bartlet</td>
-        <td>Pão de Hamburguer</td>
-        <td>Picanha</td>
+      <tr v-for="burger in burgers" :key="burger.id">
+        <td>{{ burger.id }}</td>
+        <td>{{ burger.name }}</td>
+        <td>{{ burger.bread }}</td>
+        <td>{{ burger.meat }}</td>
         <td>
           <ul>
-            <li>Bacon</li>
-            <li>Cheddar</li>
-            <li>Presunto</li>
+            <li v-for="(optional, index) in burger.optional" :key="index">
+              {{ optional }}
+            </li>
           </ul>
         </td>
         <td>
-          <select>
-            <option></option>
+          <select name="status" class="status">
+            <option
+              v-for="status in statusList"
+              :key="status.id"
+              :value="status.type"
+              :selected="burger.status == status.type"
+            >
+              {{ status.type }}
+            </option>
           </select>
           <button class="delete-btn">Cancelar</button>
         </td>
@@ -35,6 +42,35 @@
 <script>
 export default {
   name: "Dashboard",
+  data() {
+    return {
+      burgers: null,
+      burger_id: null,
+      statusList: [],
+    };
+  },
+  methods: {
+    async getOrders() {
+      const req = await fetch("http://localhost:3000/burger");
+
+      const data = await req.json();
+
+      this.burgers = data;
+
+      this.getStatus();
+    },
+
+    async getStatus() {
+      const req = await fetch("http://localhost:3000/status");
+
+      const data = await req.json();
+
+      this.statusList = data;
+    },
+  },
+  mounted() {
+    this.getOrders();
+  },
 };
 </script>
 
@@ -50,6 +86,10 @@ th,
 td {
   padding: 5px;
   text-align: left;
+}
+
+ul {
+  list-style-type: none;
 }
 
 select {
