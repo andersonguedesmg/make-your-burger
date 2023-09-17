@@ -141,5 +141,95 @@
       "type": "Finalizado"
     }
   ],
-  "burger": []
+  "burger": [
+    {
+      "name": "Jed Bartlet",
+      "bread": "Pão de Hamburguer",
+      "meat": "Picanha",
+      "optional": [
+        "Bacon",
+        "Catupiry",
+        "Queijo",
+        "Presunto",
+        "Ovo",
+        "Mostarda",
+        "Maionese",
+        "Ketchup"
+      ],
+      "status": "Solicitado",
+      "id": 1
+    },
+    {
+      "name": "Sam Seaborn",
+      "bread": "Brioche",
+      "meat": "Frango Grelhado",
+      "optional": [
+        "Tomate",
+        "Batata Palha",
+        "Champignon",
+        "Molho Barbecue",
+        "Azeitona Preta"
+      ],
+      "status": "Finalizado",
+      "id": 2
+    },
+    {
+      "name": "Donna Moss",
+      "bread": "Pão Australiano",
+      "meat": "Brisket",
+      "optional": [
+        "Bacon",
+        "Catupiry",
+        "Queijo",
+        "Milho",
+        "Alface",
+        "Azeitona Preta"
+      ],
+      "status": "Solicitado",
+      "id": 3
+    },
+    {
+      "name": "Leo McGarry",
+      "bread": "Pão Italiano",
+      "meat": "Alcatra",
+      "optional": [
+        "Bacon",
+        "Cheddar",
+        "Batata Palha",
+        "Ovo",
+        "Azeitona Preta",
+        "Picles"
+      ],
+      "status": "Finalizado",
+      "id": 4
+    },
+    {
+      "name": "C. J. Cregg",
+      "bread": "Ciabatta",
+      "meat": "Vegano",
+      "optional": [
+        "Tomate",
+        "Ovo",
+        "Azeitona Preta",
+        "Champignon",
+        "Picles"
+      ],
+      "status": "Solicitado",
+      "id": 5
+    },
+    {
+      "name": "Toby Ziegler",
+      "bread": "Pão de Hamburguer",
+      "meat": "Costela",
+      "optional": [
+        "Bacon",
+        "Molho Barbecue",
+        "Cheddar",
+        "Presunto",
+        "Champignon"
+      ],
+      "status": "Solicitado",
+      "id": 6
+    }
+  ]
 }
